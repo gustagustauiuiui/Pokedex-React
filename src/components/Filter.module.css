@@ -1,0 +1,84 @@
+.filterContainer{
+    width: 100%;
+    background-color: var(--dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.filterContainer .options{
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.filterContainer .options h1{
+    font-size: 18px;
+    color: var(--light-text);
+    padding-bottom: 15px;
+}
+
+.filterContainer .options ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.filterContainer .options ul li{
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--light-text);
+    border: 1px solid white;
+}
+
+.filterContainer .options ul li input{
+    display: none;
+}
+
+.filterContainer .options ul li label{
+    padding: 7px;
+}
+
+.filterContainer .options ul li input:checked{
+    display: table;
+}
+
+.filterContainer .btnSearch{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.filterContainer button{
+    padding: 10px 50px;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+    color: var(--dark-grey);
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filterContainer button:hover{
+    background-color: rgb(209, 168, 35);
+    transition: 0.1s;
+}
+
+.filterContainer button img{
+    width: 20px;
+}

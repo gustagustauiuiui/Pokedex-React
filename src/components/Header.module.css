@@ -9,7 +9,11 @@ header{
     gap: 30px;
 }
 
+<<<<<<< HEAD
 header .logoContainer{
+=======
+.logoContainer{
+>>>>>>> initialComponents
     width: 100%;
     display: flex;
     align-items: center;
@@ -18,11 +22,20 @@ header .logoContainer{
     background-color: var(--dark-grey);
 }
 
+<<<<<<< HEAD
 header .logoContainer img{
     width: 110px;
 }
 
 header .titleContainer{
+=======
+.logoContainer img{
+    width: 110px;
+    height: 110px;
+}
+
+.titleContainer{
+>>>>>>> initialComponents
     width: 80%;
     display: flex;
     align-items: flex-start;
@@ -31,14 +44,22 @@ header .titleContainer{
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 header .titleContainer h1{
+=======
+.titleContainer h1{
+>>>>>>> initialComponents
     color: var(--dark-grey);
     font-family: 'PocketMonk';
     font-size: 32px;
     letter-spacing: 1px;
 }
 
+<<<<<<< HEAD
 header .titleContainer .heading{
+=======
+.heading{
+>>>>>>> initialComponents
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
