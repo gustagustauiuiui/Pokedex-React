@@ -1,6 +1,6 @@
 import styles from './Filter.module.css';
-import svg from '../assets/svg/icons8-search.svg'
-import OptionType from './OptionType';
+import svg from '../../assets/svg/icons8-search.svg'
+import OptionType from '../OptionType';
 
 function Filter() {
 

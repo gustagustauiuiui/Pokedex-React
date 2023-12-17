@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import svg from '../assets/svg/pokemon-svgrepo-com.svg'
+import svg from '../../assets/svg/pokemon-svgrepo-com.svg'
 
 function Header() {
     return (
