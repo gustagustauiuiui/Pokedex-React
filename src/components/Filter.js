@@ -13,8 +13,8 @@ function Filter() {
                 <div className={styles.options}>
                     <h1>Filtrar por tipo:</h1>
                     <ul id="optionsContainer1">
-                        {types.map(t => (
-                            <OptionType className={styles.optionType} type={t}></OptionType>
+                        {types.map((t, i) => (
+                            <OptionType className={styles.optionType} type={t} key={i}></OptionType>
                         ))}
                     </ul>
                 </div>

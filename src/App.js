@@ -1,23 +1,16 @@
-<<<<<<< HEAD
-
 import './App.css';
-import Header from './components/Header';
-=======
-import './App.css';
+import Card from './components/Card';
 import Filter from './components/Filter';
 import Header from './components/Header';
 import Search from './components/Search';
->>>>>>> initialComponents
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-<<<<<<< HEAD
-=======
       <Search></Search>
       <Filter></Filter>
->>>>>>> initialComponents
+      <Card></Card>
     </div>
   );
 }

@@ -12,8 +12,8 @@ function Search() {
                     <div className={styles.searchBarContainer}>
                         <h1>NOME OU NÚMERO</h1>
                         <div className={styles.searchBar}>
-                            <input type="search" name="nameOrNumber" id=""/>
-                                <button onclick=""><img src={svg} alt=""/></button>
+                            <input type="search" name="nameOrNumber"/>
+                                <button><img src={svg} alt=""/></button>
                         </div>
                     </div>
 
