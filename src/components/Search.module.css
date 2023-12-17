@@ -1,0 +1,180 @@
+.pokedexContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    margin-top: 30px;
+    gap: 18px;
+    
+    background-image: url("../assets/images/20120117.jpg");
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.pokedexContainer .titlePokedex{
+    width: 80%;
+    padding: 18px;
+}
+
+.pokedexContainer .titlePokedex h1{
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--light-text);
+}
+
+.pesquisa{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--light-text);
+    gap: 20px;
+}
+
+.pesquisa .searchBarContainer{
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.pesquisa .searchBarContainer .searchBar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pesquisa .searchBarContainer h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pesquisa .searchBarContainer .searchBar input{
+    min-width: 200px;
+    width: 45%;
+    padding: 8px;
+    border: 2px solid var(--dark-grey);
+    margin-right: 15px;
+}
+
+.pesquisa .searchBarContainer .searchBar button {
+    padding: 6px 10px 8px 8px;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pesquisa .searchBarContainer .searchBar button:hover{
+    background-color: rgb(209, 168, 35);
+    transition: 0.1s;
+}
+
+.pesquisa .searchBarContainer .searchBar button img{
+    width: 20px;
+}
+
+.pesquisa .infoSearchContainer{
+    padding: 30px;
+    border: var(--dark-grey);
+    box-shadow: 3px 3px 6px var(--dark-grey);
+    background: var(--blue);
+    color: var(--light-text);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.filterContainer{
+    width: 100%;
+    background-color: var(--dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.filterContainer .options{
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.filterContainer .options h1{
+    font-size: 18px;
+    color: var(--light-text);
+    padding-bottom: 15px;
+}
+
+.filterContainer .options ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.filterContainer .options ul li{
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--light-text);
+    border: 1px solid white;
+}
+
+.filterContainer .options ul li input{
+    display: none;
+}
+
+.filterContainer .options ul li label{
+    padding: 7px;
+}
+
+.filterContainer .options ul li input:checked{
+    display: table;
+}
+
+.filterContainer .btnSearch{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.filterContainer button{
+    padding: 10px 50px;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+    color: var(--dark-grey);
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filterContainer button:hover{
+    background-color: rgb(209, 168, 35);
+    transition: 0.1s;
+}
+
+.filterContainer button img{
+    width: 20px;
+}
