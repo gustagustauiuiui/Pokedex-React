@@ -56,13 +56,15 @@
 .mainCard{
     width: 85%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 190px));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 210px));
+    gap: 25px;
+    margin: 0 auto;
     margin-bottom: 50px;
+    justify-content: space-evenly;
 }
 
 .CardPokemon{
-    min-width: 190px;
+    min-width: 210px;
     max-height: 345px;
     min-height: 345px;
     border-radius: 3px;
@@ -76,7 +78,7 @@
 }
 
 .CardPokemon img{
-    width: 170px;
+    width: 200px;
     background-color: white;
     z-index: 0;
     display: flex;

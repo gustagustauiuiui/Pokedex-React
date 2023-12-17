@@ -53,15 +53,13 @@ async function consultPokemons(qtd) {
     }
 }
 
-
-
 function Card() {
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
         const fetchPokemons = async () => {
             try {
-                const pokemonsData = await getPokemons(3);
+                const pokemonsData = await getPokemons(300);
                 const resultados = pokemonsData.results;
                 
                 const pokemonsPromise = resultados.map(p => storePokemon(p.name));
