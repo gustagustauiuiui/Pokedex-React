@@ -5,13 +5,13 @@ import React, { useEffect, useState } from 'react';
 
 async function getPokemon(nameOrID) {
     const results = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameOrID}/`);
-    
+
     return await results.json();
 }
 
 async function getPokemons(limit) {
     const result = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0.`);
-    
+
     return await result.json();
 }
 
@@ -31,25 +31,10 @@ async function storePokemon(nameOrID) {
                 return t.type.name;
             })
         };
-        
+
         return pokemonTratado;
     } catch (error) {
         console.log("erro: " + error);
-    }
-    
-}
-
-async function consultPokemons(qtd) {
-    try {
-        const pokemonsData = await getPokemons(qtd);
-        const resultados = pokemonsData.results;
-        
-        const pokemonsPromise = resultados.map(p => storePokemon(p.name));
-        const result = Promise.all(pokemonsPromise);
-        
-        return result;
-    } catch (error) {
-        console.log("error" + error);
     }
 }
 
@@ -61,19 +46,56 @@ function Card() {
             try {
                 const pokemonsData = await getPokemons(300);
                 const resultados = pokemonsData.results;
-                
+
                 const pokemonsPromise = resultados.map(p => storePokemon(p.name));
                 const result = await Promise.all(pokemonsPromise);
-                
+
                 setPokemons(result);
             } catch (error) {
                 console.log("error" + error);
             }
         };
-        
+
         fetchPokemons();
     }, []);
-    
+
+    let options = ["Menor número", "Maior número", "A-Z", "Z-A"];
+
+    function sortByOptionIncreasing(option) {
+        return (a, b) => {
+            return +(a[option] > b[option]) || +(a[option] === b[option]) - 1;
+        };
+    }
+    function sortByOptionDecreasing(option) {
+        return (a, b) => {
+            return +(a[option] < b[option]) || +(a[option] === b[option]) - 1;
+        };
+    }
+
+    function filtrar(e) {
+        let option = e.target.value;
+
+        let sortedPokemons = [...pokemons];
+
+        switch (option) {
+            case "Menor número":
+                setPokemons(sortedPokemons.sort(sortByOptionIncreasing("id")));
+                break;
+            case "Maior número":
+                setPokemons(sortedPokemons.sort(sortByOptionDecreasing("id")));
+                break;
+            case "A-Z":
+                setPokemons(sortedPokemons.sort(sortByOptionIncreasing("name")));
+                break;
+            case "Z-A":
+                setPokemons(sortedPokemons.sort(sortByOptionDecreasing("name")));
+                break;
+            default:
+                break;
+        }
+
+    }
+
     return (
         <>
             <section className={styles.card}>
@@ -85,20 +107,18 @@ function Card() {
 
                     <div className={styles.ordenarcard}>
                         <p>Organizar por: </p>
-                        <select className={styles.orderOptions}>
-                            <option value="Menor número">Menor número</option>
-                            <option value="Maior número">Maior número</option>
-                            <option value="A-Z">A-Z</option>
-                            <option value="Z-A">Z-A</option>
+                        <select className={styles.orderOptions} onChange={(e) => filtrar(e)}>
+                            {options.map((opt, index) => {
+                                return <option value={opt} key={index}>{opt}</option>
+                            })}
                         </select>
                     </div>
                 </div>
 
                 <div className={styles.mainCard}>
                     {pokemons.map(p => (
-                         <PokemonCard key={p.id} id={p.id} name={p.name} sprite={p.sprite} types={p.types} />
+                        <PokemonCard key={p.id} id={p.id} name={p.name} sprite={p.sprite} types={p.types} />
                     ))}
-
                 </div>
             </section>
         </>

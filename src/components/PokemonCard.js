@@ -11,8 +11,8 @@ function PokemonCard({id, sprite, name, types}) {
                     <p>{id}</p>
                     <h1>{name}</h1>
                     <div className={styles.types}>
-                        {types.map(t => (
-                            <PokemonTypeSpan type={t}></PokemonTypeSpan>
+                        {types.map((t, i) => (
+                            <PokemonTypeSpan key={i} type={t}></PokemonTypeSpan>
                         ))}
                     </div>
                 </div>
