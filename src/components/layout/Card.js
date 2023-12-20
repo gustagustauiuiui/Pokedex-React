@@ -3,21 +3,14 @@ import svg from '../../assets/svg/reload-svgrepo-com.svg'
 import PokemonCard from '../PokemonCard';
 import React, { useEffect, useState } from 'react';
 
-async function getPokemon(nameOrID) {
-    const results = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameOrID}/`);
-
-    return await results.json();
-}
-
 async function getPokemons(limit) {
     const result = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0.`);
-
     return await result.json();
 }
 
 async function storePokemon(nameOrID) {
     try {
-        const pokemon = await getPokemon(nameOrID);
+        const pokemon = await (await fetch(`https://pokeapi.co/api/v2/pokemon/${nameOrID}/`)).json();
         const pokemonTratado = {
             id: pokemon.id,
             name: pokemon.name,
@@ -31,7 +24,6 @@ async function storePokemon(nameOrID) {
                 return t.type.name;
             })
         };
-
         return pokemonTratado;
     } catch (error) {
         console.log("erro: " + error);
@@ -44,7 +36,7 @@ function Card() {
     useEffect(() => {
         const fetchPokemons = async () => {
             try {
-                const pokemonsData = await getPokemons(300);
+                const pokemonsData = await getPokemons(100);
                 const resultados = pokemonsData.results;
 
                 const pokemonsPromise = resultados.map(p => storePokemon(p.name));
@@ -73,6 +65,8 @@ function Card() {
     }
 
     function filtrar(e) {
+        console.log("filtrando");
+        
         let option = e.target.value;
 
         let sortedPokemons = [...pokemons];
@@ -96,12 +90,30 @@ function Card() {
 
     }
 
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        console.log(array);
+        console.log(pokemons);
+        return array;
+    };
+
+    const random = async () => {
+        setPokemons(shuffleArray([...pokemons]))
+    }
+
+    useEffect(() => {
+        console.log("render");
+    }, [pokemons])
+
     return (
         <>
             <section className={styles.card}>
 
                 <div className={styles.headCard}>
-                    <button>
+                    <button onClick={random}>
                         <img src={svg} alt="" /> Aleatório
                     </button>
 
